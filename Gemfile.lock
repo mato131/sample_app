@@ -1,7 +1,6 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    ZenTest (4.5.0)
     abstract (1.0.0)
     actionmailer (3.0.7)
       actionpack (= 3.0.7)
@@ -89,7 +88,6 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  ZenTest
   rails (= 3.0.7)
   rspec (= 2.5.0)
   rspec-rails (= 2.5.0)
