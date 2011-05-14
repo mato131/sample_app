@@ -11,8 +11,8 @@ render_views
     it  "should have the right title" do
       get 'home'
       response.should have_selector ("title",
-                                     :content => "The Latest Debate | Home")
-      end
+                                     :content => "The Latest Debate")
+    end
   it "should have a non-blank body" do
     get 'home'
     response.body.should_not =~/<body>\s*<\/body>/
@@ -27,8 +27,9 @@ render_views
     it  "should have the right title" do
       get 'contact'
       response.should have_selector ("title",
-                                     :content => "The Latest Debate | Contact")
-      end
+                                     :content => "The Latest Debate | Contacts")
+    end
+    
   end
   
   describe "GET 'about'" do
@@ -40,8 +41,9 @@ render_views
       get 'about'
       response.should have_selector ("title",
                                      :content => "The Latest Debate | About")
-      end
     end
   end
+end
+
   
 
