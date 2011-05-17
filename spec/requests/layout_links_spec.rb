@@ -17,7 +17,33 @@ it "should have a Help page at '/help'" do
   get '/help'
   response.should have_selector('title'), :content => "Help"
   end
+it "should have a Signup page at '/signup'" do
+  get '/signup'
+  response.should have_selector('title'), :content => "Sign up"
+  end
+it "should have a privacy page at '/privacy'" do
+  get '/privacy'
+  response.should have_selector('title'), :content => "Privacy"
+  end
 
+it "should have the right links on the layout" do
+  visit root_path
+  response.should have_selector('title'), :content => "Home"
+  click_link "About"
+  response.should have_selector('title'), :content => "About"
+  click_link "Contact"
+  response.should have_selector('title'), :content => "Contact"
+  click_link "Home"
+  response.should have_selector('title'), :content => "Home"
+  click_link "Sign up now!"
+  response.should have_selector('title'), :content => "Sign up"
+   click_link "Privacy"
+  response.should have_selector('title'), :content => "Privacy"
+  response.should have_selector('a[href="/"]>img')
+  
+  
+  
+  end
 
 
 end
