@@ -16,7 +16,6 @@ render_views
   it "should have a non-blank body" do
     get 'home'
     response.body.should_not =~/<body>\s*<\/body>/
-  
   end
 
   describe "GET 'contact'" do
@@ -43,6 +42,7 @@ render_views
                                      :content => "The Latest Debate | What's the Deal?")
     end
   end
+  
    describe "GET 'privacy'" do
     it "should be successful" do
       get 'privacy'
@@ -53,8 +53,8 @@ render_views
       response.should have_selector ("title",
                                      :content => "The Latest Debate | Privacy Policy")
     end
-end
-describe "GET 'help'" do
+  end
+  describe "GET 'help'" do
     it "should be successful" do
       get 'help'
       response.should be_success
@@ -64,6 +64,6 @@ describe "GET 'help'" do
       response.should have_selector ("title",
                                      :content => "The Latest Debate | Help")
     end
-end
+  end
   
 
