@@ -4,3 +4,17 @@
 </p>
 
 <%= link_to "Sign up now!", '#', :class => "signup_button round"%>
+
+ <div id="fb-root" style="position:absolute;top:50px;left:1110px">
+      <script src="http://connect.facebook.net/en_US/all.js">
+      </script>
+      <script>
+         FB.init({ 
+            appId:'162073940524216', cookie:true, 
+            status:true, xfbml:true 
+         });
+      </script>
+  <fb:login-button perms="">
+         Login with Facebook
+      </fb:login-button>
+</div>
