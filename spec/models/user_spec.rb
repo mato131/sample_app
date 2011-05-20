@@ -136,15 +136,18 @@ describe User do
       end
 
       it "should return nil on email/password mismatch" do
-        User.authenticate(@aatr[:email], "wrongpass").should be_nil
+        wrong_password_user = User.authenticate(@attr[:email], "wrongpass")
+        wrong_password_user.should be_nil
       end
 
       it "should return nil for an email address with no user" do
-        User.authenticate("bar@foo.com", @attr[:password]).should be_nil
+        nonexistent_user = User.authenticate("bar@foo.com", @attr[:password])
+        nonexistent_user.should be_nil
       end
 
       it "should return the user on email/password match" do
-        User.authenticate(@attr[:email], @attr[:password]).should == @user
+        matching_user = User.authenticate(@attr[:email], @attr[:password])
+        matching_user.should == @user
       end
     end
   end
