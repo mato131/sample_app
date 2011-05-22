@@ -11,6 +11,6 @@ def title
 end
 def logo
    image_tag("logo1.jpg", :alt => "Sample App", :class => "round")
-  end
+end
 end
 
