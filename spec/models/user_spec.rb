@@ -10,8 +10,6 @@ describe User do
       :password_confirmation => "foobar"
       }
   end
-  
-  
   it "should create a new instance given a valid attribute" do
     User.create!(@attr)
   end
@@ -24,9 +22,9 @@ describe User do
     no_email_user.should_not be_valid
   end
   
-  it "should reject names that are too long"
-    long_name ="a" * 51
-    long_name_user = User.new(@attr.merge(:neame =long_name))
+  it "should reject names that are too long" do
+    long_name ="a"*51
+    long_name_user = User.new(@attr.merge(:name => long_name))
     long_name_user.should_not be_valid
   end
 
@@ -39,11 +37,11 @@ describe User do
   end
   
   it "should reject invalid email addresses" do
-     addresses = %w[user@foo,com user_at_foo.org example.user@foo.]
-     addresses.each do |address|
-       invalid_email_user = User.new(@attr.merge(:email => address))
-       invalid_email_user.should_not be valid
-     end
+    addresses = %w[user@foo,com user_at_foo.org example.user@foo.]
+    addresses.each do |address|
+      invalid_email_user = User.new(@attr.merge(:email => address))
+      invalid_email_user.should_not be valid
+    end
   end  
   it "should reject duplicate email addresses" do
     # Put a user with given email address into the database.
@@ -70,7 +68,8 @@ describe User do
     end
     
     it "should have a password confirmation attribute" do
-    @user.should respond_to(:password_confirmation)
+      @user.should respond_to(:password_confirmation)
+    end
     
   end
   
@@ -181,19 +180,14 @@ describe User do
       @user.should respond_to(:microposts)
     end
     it "should have the right microposts in the right order" do
-      @user.microposts.should == [@mp2. @mp1]
+      @user.microposts.should == [@mp2, @mp1]
     end
     it "should destroy associated microposts" do
       @user.destroy
       [@mp1, @mp2].each do |micropost|
         lambda do
-         Micropost.find(micropost) 
+          Micropost.find(micropost) 
         end.should raise_error(ActiveRecord::RecordNotFound) 
-        
       end
     end
   end
-
-end
-  
-  
