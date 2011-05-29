@@ -40,7 +40,7 @@ describe User do
     addresses = %w[user@foo,com user_at_foo.org example.user@foo.]
     addresses.each do |address|
       invalid_email_user = User.new(@attr.merge(:email => address))
-      invalid_email_user.should_not be valid
+      invalid_email_user.should_not be_valid
     end
   end  
   it "should reject duplicate email addresses" do
@@ -111,8 +111,8 @@ describe User do
     it "should set the encrypted password" do
       @user.encrypted_password.should_not be_blank
     end
-    it "should hav a salt" do
-    @user.should respond_to(:user)
+    it "should have a salt" do
+      @user.should respond_to(:user)
     end
     describe "has_password? method" do
       
@@ -190,4 +190,19 @@ describe User do
         end.should raise_error(ActiveRecord::RecordNotFound) 
       end
     end
+    describe "status feed" do
+      it "should have a feed" do
+        @user.should respond_to(:feed)
+      end
+      it "should include the user's microposts" do
+        @user.feed.should include(@mp1)
+        @user.feed.should include(@mp2)
+      end
+      it "should not include a different user's microposts" do
+        mp3 = Factory(:micropost, :user => Factory(:user, :email => Factory.next(:email)))
+        @user.feed.should_not include(mp3)
+      end
+      
+    end
   end
+end

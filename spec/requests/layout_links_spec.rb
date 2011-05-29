@@ -13,24 +13,24 @@ describe "LayoutLinks" do
   get '/about'
   response.should have_selector('title'), :content => "About"
   end
-it "should have a Help page at '/help'" do
+  it "should have a Help page at '/help'" do
   get '/help'
   response.should have_selector('title'), :content => "Help"
   end
-it "should have a Signup page at '/signup'" do
+  it "should have a Signup page at '/signup'" do
   get '/signup'
   response.should have_selector('title'), :content => "Sign up"
   end
-it "should have a Signin page at '/signin'" do
+  it "should have a Signin page at '/signin'" do
   get '/signin'
   response.should have_selector('title'), :content => "Sign in"
   end
-it "should have a privacy page at '/privacy'" do
+  it "should have a privacy page at '/privacy'" do
   get '/privacy'
   response.should have_selector('title'), :content => "Privacy"
   end
 
-it "should have the right links on the layout" do
+  it "should have the right links on the layout" do
   visit root_path
   response.should have_selector('title'), :content => "Home"
   click_link "About"
@@ -45,6 +45,7 @@ it "should have the right links on the layout" do
   response.should have_selector('title'), :content => "Privacy"
   response.should have_selector('a[href="/"]>img')
   end
+end
 describe "when not signed in" do
   it "should have a signin link" do
    visit root_path
@@ -79,6 +80,5 @@ describe "when signed in" do
     visit root_path
    response.should have_selector("a", :href => users_path,
                                       :content => "Users")
- end
+  end
 end
-
