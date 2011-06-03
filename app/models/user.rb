@@ -40,13 +40,13 @@ class User < ActiveRecord::Base
                        :length       => { :within => 6..40 }
   
  before_save :encrypt_password
- 
+  
  def has_password?(submitted_password)
    encrypted_password == encrypt(submitted_password)
  end
- def feed
-   Micropost.where("user_id = ?", id)
- end
+  def feed
+    Micropost.from_users_followed_by(self)
+  end
  
  def following?(followed)
    relationships.find_by_followed_id(followed)
