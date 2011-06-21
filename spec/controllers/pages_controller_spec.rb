@@ -10,7 +10,7 @@ render_views
       end
        it  "should have the right title" do
        get 'home'
-       response.should have_selector("title", :content => "The Latest Debate")
+       response.should have_selector("title", :content => "Maarfy")
       end
       it "should have a non-blank body" do
        get 'home'
@@ -41,7 +41,7 @@ render_views
     end
     it  "should have the right title" do
       get 'contact'
-      response.should have_selector("title", :content => "The Latest Debate | Contact Us")
+      response.should have_selector("title", :content => "Maarfy | Contact Us")
     end
     
   end
@@ -53,7 +53,7 @@ render_views
     end
     it  "should have the right title" do
       get 'about'
-      response.should have_selector("title", :content => "The Latest Debate | What's the Deal?")
+      response.should have_selector("title", :content => "Maarfy | What's the Deal?")
     end
   end
   
@@ -64,7 +64,7 @@ render_views
     end
     it  "should have the right title" do
       get 'privacy'
-      response.should have_selector("title", :content => "The Latest Debate | Privacy Policy")
+      response.should have_selector("title", :content => "Maarfy | Privacy Policy")
     end
   end
   describe "GET 'help'" do
@@ -74,7 +74,7 @@ render_views
     end
     it  "should have the right title" do
       get 'help'
-      response.should have_selector("title", :content => "The Latest Debate | Help")
+      response.should have_selector("title", :content => "Maarfy | Help")
     end
   end
 end

@@ -16,24 +16,19 @@
 
 <% else %>
 
-<h1>The Latest Debate</h1>
+
+<h2>The idea behind Maarfy:<br/>
+ An inherently private, free, clean, easy-to-use social interaction tool.</h2> <br/>
+<h3>1- Complete privacy in your social interactions. <br/>
+2- Share your photos, videos, links and words with exactly whom you want. <br/>
+3- Create dynamic networks to encompass different groups of people (e.g work, life and family) and get in control of your interactions. <br/>
+4- Create a special "arena" to interact with people you regularly communicate with (e.g spouse/sibling/ best friend).<br/>
+</h3>
 <p>
-  This is the homepage for <a href="htt'://www.thelatestdebate.com"> The Latest Debate </a>
 </p>
 
 <%= link_to "Sign up now!", signup_path, :class => "signup_button round"%>
 
- <div id="fb-root" style="position:absolute;top:50px;left:1110px">
-      <script src="http://connect.facebook.net/en_US/all.js">
-      </script>
-      <script>
-         FB.init({ 
-            appId:'162073940524216', cookie:true, 
-            status:true, xfbml:true 
-         });
-      </script>
-  <fb:login-button perms="">
-         Login with Facebook
-      </fb:login-button>
-</div>
+ 
+
 <% end %>
